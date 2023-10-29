@@ -1,6 +1,8 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 
+import { StatusBar } from 'expo-status-bar';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -11,11 +13,14 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Intro" component={Intro} options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar style='dark' backgroundColor='#FFF' />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Intro" component={Intro} options={{ headerShown: false, animationEnabled: false }} />
+          <Stack.Screen name="Home" component={Home} options={{ headerShown: false, animationEnabled: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
